@@ -20,19 +20,10 @@ ENV/
 .ipynb_checkpoints/
 *.ipynb
 
-# Data — do NOT commit raw or processed data
-data/
-!data/.gitkeep
-
 # Models — large binary files
 models/
 !models/.gitkeep
 
-# Results and figures — generated, not source
-results/
-!results/.gitkeep
-figures/
-!figures/.gitkeep
 
 # OS
 .DS_Store
@@ -48,3 +39,5 @@ Thumbs.db
 .env
 *.pem
 *.key
+
+*:Zone.Identifier

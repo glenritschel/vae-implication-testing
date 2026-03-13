@@ -101,7 +101,11 @@ for (gene_a, readout_b) in IMPLICATION_PAIRS:
 
     # B: readout indicator — if readout_b is a single gene
     if readout_b in adata.var_names:
-        expr     = np.array(adata[:, readout_b].X.todense()).flatten()
+        X_b = adata[:, readout_b].X
+        if hasattr(X_b, 'todense'):
+            expr = np.array(X_b.todense()).flatten()
+        else:
+            expr = np.array(X_b).flatten()
         ctrl_med = np.median(expr[control_mask])
         b_col    = f"HIGH_{readout_b}"
         adata.obs[b_col] = (expr > ctrl_med).astype(int)

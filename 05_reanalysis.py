@@ -32,7 +32,24 @@ ALPHA        = 0.05
 os.makedirs(RESULTS_DIR, exist_ok=True)
 os.makedirs(FIGURES_DIR, exist_ok=True)
 
+import anndata as ad
+import scipy.sparse
+
 df = pd.read_csv(LATENT_PATH, index_col=0)
+
+# Extract raw CDKN1A expression from h5ad to df since it's not saved in latent.csv
+try:
+    adata = ad.read_h5ad("./data/processed/perturb_prepped.h5ad")
+    if "CDKN1A" in adata.var_names:
+        X_cdkn1a = adata[:, "CDKN1A"].X
+        if hasattr(X_cdkn1a, 'todense'):
+            expr_cdkn1a = np.array(X_cdkn1a.todense()).flatten()
+        else:
+            expr_cdkn1a = np.array(X_cdkn1a).flatten()
+        df["CDKN1A"] = expr_cdkn1a
+except Exception as e:
+    print(f"Failed to load raw CDKN1A counts: {e}")
+
 print(f"Loaded {len(df)} cells")
 print(f"Perturbations: {df['perturbation'].value_counts().to_dict()}")
 print(f"Pathway columns: {[c for c in df.columns if c not in df.filter(like='z_').columns and not c.startswith('KO_') and not c.startswith('HIGH_') and c not in ['perturbation','n_genes','_scvi_batch','_scvi_labels']]}")
@@ -56,7 +73,7 @@ PAIRS = [
     ("MYC",   "HIGH_CDKN1A",        "CDKN1A_high",        "low",
      "MYC KO de-represses CDKN1A => expect HIGH_CDKN1A=1"),
 
-    ("TP53",  "HIGH_CDKN1A",        "CDKN1A_high",        "low",
+    ("TP53",  "HIGH_CDKN1A",        "CDKN1A_high",        "high",
      "TP53 activates CDKN1A; KO => expect CDKN1A LOW (violation=HIGH)"),
 
     ("BRCA1", "DNA_damage_response", "DNA_damage_active",  "low",

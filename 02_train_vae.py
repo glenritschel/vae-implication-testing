@@ -79,7 +79,7 @@ latent_df = pd.DataFrame(
     index=adata.obs_names,
 )
 # Attach all obs columns (perturbation labels, KO_* and HIGH_* flags)
-latent_df = pd.concat([adata.obs.reset_index(drop=True), latent_df], axis=1)
+latent_df = pd.concat([adata.obs, latent_df], axis=1)
 latent_df.to_csv(LATENT_PATH, index=True)
 print(f"Latent representation saved to {LATENT_PATH}")
 

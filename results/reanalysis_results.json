@@ -1,0 +1,105 @@
+{
+  "MYC=>CDKN1A_high": {
+    "gene_a": "MYC",
+    "readout": "CDKN1A_high",
+    "claim": "MYC KO de-represses CDKN1A => expect HIGH_CDKN1A=1",
+    "violation_when": "low",
+    "n_a1": 188,
+    "n_violations": 96,
+    "violation_rate": 0.511,
+    "pac_bound": 0.5728,
+    "mann_whitney": null,
+    "population_level": {
+      "ko_mean": null,
+      "ctrl_mean": null,
+      "direction_correct": null
+    },
+    "verdict": "REJECTED"
+  },
+  "TP53=>CDKN1A_high": {
+    "gene_a": "TP53",
+    "readout": "CDKN1A_high",
+    "claim": "TP53 activates CDKN1A; KO => expect CDKN1A LOW (violation=HIGH)",
+    "violation_when": "low",
+    "n_a1": 149,
+    "n_violations": 86,
+    "violation_rate": 0.577,
+    "pac_bound": 0.6455,
+    "mann_whitney": null,
+    "population_level": {
+      "ko_mean": null,
+      "ctrl_mean": null,
+      "direction_correct": null
+    },
+    "verdict": "REJECTED"
+  },
+  "BRCA1=>DNA_damage_active": {
+    "gene_a": "BRCA1",
+    "readout": "DNA_damage_active",
+    "claim": "BRCA1 KO activates DNA damage response => expect score HIGH",
+    "violation_when": "low",
+    "n_a1": 160,
+    "n_violations": 75,
+    "violation_rate": 0.469,
+    "pac_bound": 0.5368,
+    "mann_whitney": {
+      "statistic": 13700.0,
+      "p_value": 0.216,
+      "effect_direction": 0.0248,
+      "expected_direction": "positive",
+      "direction_correct": true
+    },
+    "population_level": {
+      "ko_mean": 0.4951,
+      "ctrl_mean": 0.4704,
+      "direction_correct": true
+    },
+    "verdict": "REJECTED"
+  },
+  "KRAS=>MAPK_active": {
+    "gene_a": "KRAS",
+    "readout": "MAPK_active",
+    "claim": "KRAS KO suppresses MAPK => expect score LOW (violation=HIGH)",
+    "violation_when": "high",
+    "n_a1": 177,
+    "n_violations": 86,
+    "violation_rate": 0.486,
+    "pac_bound": 0.5503,
+    "mann_whitney": {
+      "statistic": 14645.0,
+      "p_value": 0.596,
+      "effect_direction": 0.0079,
+      "expected_direction": "negative",
+      "direction_correct": false
+    },
+    "population_level": {
+      "ko_mean": 0.5003,
+      "ctrl_mean": 0.4924,
+      "direction_correct": false
+    },
+    "verdict": "REJECTED"
+  },
+  "PTEN=>PI3K_AKT_active": {
+    "gene_a": "PTEN",
+    "readout": "PI3K_AKT_active",
+    "claim": "PTEN KO activates PI3K/AKT => expect score HIGH",
+    "violation_when": "low",
+    "n_a1": 163,
+    "n_violations": 87,
+    "violation_rate": 0.534,
+    "pac_bound": 0.6002,
+    "mann_whitney": {
+      "statistic": 12514.0,
+      "p_value": 0.8176,
+      "effect_direction": -0.0302,
+      "expected_direction": "positive",
+      "direction_correct": false
+    },
+    "population_level": {
+      "ko_mean": 0.4886,
+      "ctrl_mean": 0.5188,
+      "direction_correct": false
+    },
+    "verdict": "REJECTED"
+  }
+}

@@ -143,7 +143,6 @@ def latent_stress_test(adata, model, latent_df: pd.DataFrame,
         px = model.module.generative(
             z=z_tensor,
             library=torch.ones(n_samples, 1) * 10.0,  # fixed library size
-            batch_index=torch.zeros(n_samples, 1, dtype=torch.long) # fake batch
         )["px"]
         # Mean expression under NegBinom: px.mu
         expr_decoded = px.mu.cpu().numpy()  # (n_samples, n_genes)
@@ -153,11 +152,9 @@ def latent_stress_test(adata, model, latent_df: pd.DataFrame,
 
     # Threshold: median expression of gene_b in control cells
     ctrl_mask = adata.obs[PERT_COL] == "non-targeting"
-    counts_b = adata[ctrl_mask, gene_b].layers["counts"]
-    if hasattr(counts_b, 'todense'):
-        b_ctrl = np.array(counts_b.todense()).flatten()
-    else:
-        b_ctrl = np.array(counts_b).flatten()
+    b_ctrl    = np.array(
+        adata[ctrl_mask, gene_b].layers["counts"].todense()
+    ).flatten()
     threshold = np.median(b_ctrl)
 
     violation_rate = float((b_expr < threshold).mean())

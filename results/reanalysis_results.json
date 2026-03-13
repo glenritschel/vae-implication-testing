@@ -4,15 +4,21 @@
     "readout": "CDKN1A_high",
     "claim": "MYC KO de-represses CDKN1A => expect HIGH_CDKN1A=1",
     "violation_when": "low",
-    "n_a1": 188,
-    "n_violations": 96,
-    "violation_rate": 0.511,
-    "pac_bound": 0.5728,
-    "mann_whitney": null,
+    "n_a1": 171,
+    "n_violations": 82,
+    "violation_rate": 0.48,
+    "pac_bound": 0.5452,
+    "mann_whitney": {
+      "statistic": 14272.0,
+      "p_value": 0.2115,
+      "effect_direction": 0.009,
+      "expected_direction": "positive",
+      "direction_correct": true
+    },
     "population_level": {
-      "ko_mean": null,
-      "ctrl_mean": null,
-      "direction_correct": null
+      "ko_mean": 2.1545,
+      "ctrl_mean": 2.1455,
+      "direction_correct": true
     },
     "verdict": "REJECTED"
   },
@@ -20,16 +26,22 @@
     "gene_a": "TP53",
     "readout": "CDKN1A_high",
     "claim": "TP53 activates CDKN1A; KO => expect CDKN1A LOW (violation=HIGH)",
-    "violation_when": "low",
-    "n_a1": 149,
-    "n_violations": 86,
-    "violation_rate": 0.577,
-    "pac_bound": 0.6455,
-    "mann_whitney": null,
+    "violation_when": "high",
+    "n_a1": 177,
+    "n_violations": 88,
+    "violation_rate": 0.497,
+    "pac_bound": 0.5615,
+    "mann_whitney": {
+      "statistic": 14448.5,
+      "p_value": 0.6681,
+      "effect_direction": 0.0452,
+      "expected_direction": "negative",
+      "direction_correct": false
+    },
     "population_level": {
-      "ko_mean": null,
-      "ctrl_mean": null,
-      "direction_correct": null
+      "ko_mean": 2.1907,
+      "ctrl_mean": 2.1455,
+      "direction_correct": false
     },
     "verdict": "REJECTED"
   },
@@ -38,20 +50,20 @@
     "readout": "DNA_damage_active",
     "claim": "BRCA1 KO activates DNA damage response => expect score HIGH",
     "violation_when": "low",
-    "n_a1": 160,
-    "n_violations": 75,
-    "violation_rate": 0.469,
-    "pac_bound": 0.5368,
+    "n_a1": 156,
+    "n_violations": 73,
+    "violation_rate": 0.468,
+    "pac_bound": 0.5369,
     "mann_whitney": {
-      "statistic": 13700.0,
-      "p_value": 0.216,
-      "effect_direction": 0.0248,
+      "statistic": 12418.0,
+      "p_value": 0.4923,
+      "effect_direction": 0.0022,
       "expected_direction": "positive",
       "direction_correct": true
     },
     "population_level": {
-      "ko_mean": 0.4951,
-      "ctrl_mean": 0.4704,
+      "ko_mean": 0.4994,
+      "ctrl_mean": 0.4972,
       "direction_correct": true
     },
     "verdict": "REJECTED"
@@ -61,21 +73,21 @@
     "readout": "MAPK_active",
     "claim": "KRAS KO suppresses MAPK => expect score LOW (violation=HIGH)",
     "violation_when": "high",
-    "n_a1": 177,
-    "n_violations": 86,
-    "violation_rate": 0.486,
-    "pac_bound": 0.5503,
+    "n_a1": 170,
+    "n_violations": 76,
+    "violation_rate": 0.447,
+    "pac_bound": 0.513,
     "mann_whitney": {
-      "statistic": 14645.0,
-      "p_value": 0.596,
-      "effect_direction": 0.0079,
+      "statistic": 13360.0,
+      "p_value": 0.4289,
+      "effect_direction": -0.0071,
       "expected_direction": "negative",
-      "direction_correct": false
+      "direction_correct": true
     },
     "population_level": {
-      "ko_mean": 0.5003,
-      "ctrl_mean": 0.4924,
-      "direction_correct": false
+      "ko_mean": 0.4857,
+      "ctrl_mean": 0.4928,
+      "direction_correct": true
     },
     "verdict": "REJECTED"
   },
@@ -84,21 +96,21 @@
     "readout": "PI3K_AKT_active",
     "claim": "PTEN KO activates PI3K/AKT => expect score HIGH",
     "violation_when": "low",
-    "n_a1": 163,
-    "n_violations": 87,
-    "violation_rate": 0.534,
-    "pac_bound": 0.6002,
+    "n_a1": 167,
+    "n_violations": 70,
+    "violation_rate": 0.419,
+    "pac_bound": 0.4857,
     "mann_whitney": {
-      "statistic": 12514.0,
-      "p_value": 0.8176,
-      "effect_direction": -0.0302,
+      "statistic": 13937.0,
+      "p_value": 0.2189,
+      "effect_direction": 0.0254,
       "expected_direction": "positive",
-      "direction_correct": false
+      "direction_correct": true
     },
     "population_level": {
-      "ko_mean": 0.4886,
-      "ctrl_mean": 0.5188,
-      "direction_correct": false
+      "ko_mean": 0.5179,
+      "ctrl_mean": 0.4925,
+      "direction_correct": true
     },
     "verdict": "REJECTED"
   }

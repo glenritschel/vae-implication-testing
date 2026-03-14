@@ -24,7 +24,7 @@ import scanpy as sc
 import anndata as ad
 from scipy import stats
 
-DATA_PATH   = "./data/processed/perturb_prepped.h5ad"
+DATA_PATH   = "./data/replogle2022.h5ad"
 LATENT_PATH = "./data/processed/latent.csv"
 OUT_PATH    = "./data/processed/latent_with_pathways.csv"
 

@@ -1,0 +1,156 @@
+{
+  "AsymptomaticCP => Disease": {
+    "claim": "Asymptomatic chest pain implies heart disease present",
+    "source": "Diamond & Forrester 1979; ACC/AHA Guidelines",
+    "n_a1": 142,
+    "n_a0": 155,
+    "n_violations": 39,
+    "violation_rate": 0.275,
+    "pac_bound": 0.343,
+    "chi_squared": {
+      "chi2": 74.331,
+      "p_value": 0.0,
+      "dof": 1,
+      "phi": 0.5
+    },
+    "causal": {
+      "has_edge": true,
+      "directed_A_to_B": false,
+      "note": "PC algorithm (Fisher-Z independence test)"
+    },
+    "invariance_sex": {
+      "invariant": false,
+      "groups": {
+        "sex=0.0": {
+          "n_a1": 40,
+          "n_violations": 18,
+          "violation_rate": 0.45,
+          "pac_bound": 0.5912
+        },
+        "sex=1.0": {
+          "n_a1": 102,
+          "n_violations": 21,
+          "violation_rate": 0.206,
+          "pac_bound": 0.2828
+        }
+      }
+    },
+    "rosenbaum_gamma": 0.522,
+    "verdict": "MODERATE"
+  },
+  "ExerciseAngina => Disease": {
+    "claim": "Exercise-induced angina implies heart disease present",
+    "source": "Gibbons et al. 2002 ACC/AHA Exercise Testing Guidelines",
+    "n_a1": 97,
+    "n_a0": 200,
+    "n_violations": 23,
+    "violation_rate": 0.237,
+    "pac_bound": 0.3189,
+    "chi_squared": {
+      "chi2": 50.943,
+      "p_value": 0.0,
+      "dof": 1,
+      "phi": 0.414
+    },
+    "causal": {
+      "has_edge": true,
+      "directed_A_to_B": false,
+      "note": "PC algorithm (Fisher-Z independence test)"
+    },
+    "invariance_sex": {
+      "invariant": false,
+      "groups": {
+        "sex=0.0": {
+          "n_a1": 22,
+          "n_violations": 8,
+          "violation_rate": 0.364,
+          "pac_bound": 0.5609
+        },
+        "sex=1.0": {
+          "n_a1": 75,
+          "n_violations": 15,
+          "violation_rate": 0.2,
+          "pac_bound": 0.2911
+        }
+      }
+    },
+    "rosenbaum_gamma": 0.468,
+    "verdict": "MODERATE"
+  },
+  "STDepression>2 => Disease": {
+    "claim": "ST depression > 2mm implies heart disease present",
+    "source": "Kligfield et al. 2007 AHA/ACC ECG Guidelines",
+    "n_a1": 50,
+    "n_a0": 247,
+    "n_violations": 7,
+    "violation_rate": 0.14,
+    "pac_bound": 0.2469,
+    "chi_squared": {
+      "chi2": 36.558,
+      "p_value": 0.0,
+      "dof": 1,
+      "phi": 0.351
+    },
+    "causal": {
+      "has_edge": true,
+      "directed_A_to_B": false,
+      "note": "PC algorithm (Fisher-Z independence test)"
+    },
+    "invariance_sex": {
+      "invariant": false,
+      "groups": {
+        "sex=0.0": {
+          "n": 9,
+          "skipped": true
+        },
+        "sex=1.0": {
+          "n_a1": 41,
+          "n_violations": 6,
+          "violation_rate": 0.146,
+          "pac_bound": 0.2685
+        }
+      }
+    },
+    "rosenbaum_gamma": 0.328,
+    "verdict": "MODERATE"
+  },
+  "BlockedVessels => Disease": {
+    "claim": "Any fluoroscopy-visible blocked vessel implies disease",
+    "source": "Detrano et al. 1989 (original Cleveland dataset paper)",
+    "n_a1": 123,
+    "n_a0": 174,
+    "n_violations": 31,
+    "violation_rate": 0.252,
+    "pac_bound": 0.3246,
+    "chi_squared": {
+      "chi2": 67.484,
+      "p_value": 0.0,
+      "dof": 1,
+      "phi": 0.477
+    },
+    "causal": {
+      "has_edge": true,
+      "directed_A_to_B": false,
+      "note": "PC algorithm (Fisher-Z independence test)"
+    },
+    "invariance_sex": {
+      "invariant": false,
+      "groups": {
+        "sex=0.0": {
+          "n_a1": 32,
+          "n_violations": 17,
+          "violation_rate": 0.531,
+          "pac_bound": 0.6846
+        },
+        "sex=1.0": {
+          "n_a1": 91,
+          "n_violations": 14,
+          "violation_rate": 0.154,
+          "pac_bound": 0.23
+        }
+      }
+    },
+    "rosenbaum_gamma": 0.481,
+    "verdict": "MODERATE"
+  }
+}
